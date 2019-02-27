@@ -652,14 +652,14 @@
                                     label
                                 );
 
+                                var ctrl = (typeof controllerInstance === 'function')
+                                    ? controllerInstance()
+                                    : controllerInstance;
+                                
+                                $dialog.data('$ngDialogControllerController', ctrl);
+                                
                                 if(options.bindToController) {
                                     angular.extend(controllerInstance.instance, {ngDialogId: scope.ngDialogId, ngDialogData: scope.ngDialogData, closeThisDialog: scope.closeThisDialog, confirm: scope.confirm});
-                                }
-
-                                if(typeof controllerInstance === 'function'){
-                                    $dialog.data('$ngDialogControllerController', controllerInstance());
-                                } else {
-                                    $dialog.data('$ngDialogControllerController', controllerInstance);
                                 }
                             }
 
