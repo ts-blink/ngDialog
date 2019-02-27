@@ -7,6 +7,7 @@
 (function (root, factory) {
     if (typeof module !== 'undefined' && module.exports) {
         // CommonJS
+         if (typeof angular === 'undefined') {
             factory(require('angular'));
         } else {
             factory(angular);
